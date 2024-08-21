@@ -7,11 +7,14 @@ const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 const router = new Router();
 
+const client = require("./client")
+
 // Middleware to handle request parsing
 app.use(bodyParser());
 
 // Simple route to handle GET requests
 router.get('/', async (ctx) => {
+  client.initialize();
   ctx.body = 'Hello, Koa!';
 });
 
